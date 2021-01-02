@@ -424,3 +424,16 @@ def web_search(keyword: str):
     }
     resp = utils.get(url=api["url"], params=params)
     return resp
+
+def web_search_by_type(keyword: str, search_type: str):
+    """
+    指定关键字和类型在web进行搜索，返回未经处理的字典
+    类型：视频(video)、番剧(media_bangumi)、影视(media_ft)、直播(live)、专栏(article)、话题(topic)、用户(bili_user)
+    """
+    api = API["common"]["search"]["web_search_by_type"]
+    params = {
+        "keyword": keyword,
+        "search_type": search_type
+    }
+    resp = utils.get(url=api["url"], params=params)
+    return resp
